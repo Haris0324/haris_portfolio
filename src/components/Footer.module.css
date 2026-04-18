@@ -1,0 +1,14 @@
+.footer {
+  border-top: 1px solid rgba(0, 212, 255, 0.15);
+  padding: 32px 60px;
+  text-align: center;
+  font-size: 13px;
+  color: #6b7a99;
+  position: relative;
+  z-index: 1;
+}
+
+.name {
+  color: #00d4ff;
+  font-weight: 600;
+}

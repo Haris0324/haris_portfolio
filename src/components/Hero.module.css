@@ -1,0 +1,248 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 120px 60px 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 80px;
+  position: relative;
+  z-index: 1;
+}
+
+.content {
+  flex: 1;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  background: rgba(0, 212, 255, 0.08);
+  border: 1px solid rgba(0, 212, 255, 0.15);
+  border-radius: 100px;
+  font-size: 13px;
+  color: #00d4ff;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  margin-bottom: 28px;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  background: #10b981;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(0.8); }
+}
+
+.name {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(52px, 6vw, 80px);
+  font-weight: 800;
+  line-height: 1.0;
+  letter-spacing: -2px;
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.line1 {
+  color: #e8f0fe;
+}
+
+.line2 {
+  background: linear-gradient(135deg, #00d4ff, #7c3aed);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.role {
+  font-family: 'Syne', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #6b7a99;
+  margin-bottom: 24px;
+}
+
+.desc {
+  font-size: 16px;
+  color: #6b7a99;
+  max-width: 520px;
+  line-height: 1.8;
+  margin-bottom: 44px;
+  font-weight: 300;
+}
+
+.actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+
+.socials {
+  display: flex;
+  gap: 12px;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  color: #6b7a99;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.socialLink:hover {
+  border-color: #00d4ff;
+  color: #00d4ff;
+  transform: translateY(-4px) scale(1.1);
+  background: rgba(0, 212, 255, 0.08);
+  box-shadow: 0 10px 20px rgba(0, 212, 255, 0.15);
+}
+
+/* Visual / Photo side */
+.visual {
+  flex-shrink: 0;
+  width: 380px;
+}
+
+.photoFrame {
+  position: relative;
+  width: 320px;
+  height: 380px;
+  margin: 0 auto;
+  border-radius: 24px;
+}
+
+.photoFrame::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(135deg, #00d4ff, #7c3aed, #10b981);
+  border-radius: 24px;
+  z-index: 0;
+  background-size: 200% 200%;
+  animation: rotateBorder 4s linear infinite;
+}
+
+@keyframes rotateBorder {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.photoFrame::after {
+  content: '';
+  position: absolute;
+  inset: -20px;
+  background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  z-index: -1;
+  animation: orbFloat 5s ease-in-out infinite;
+}
+
+@keyframes orbFloat {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50%       { transform: translateY(-12px) scale(1.03); }
+}
+
+/* The Next.js Image gets position:absolute by fill — wrap needs position:relative */
+.photoFrame > :global(img),
+.photoFrame > :global(span) {
+  position: relative;
+  z-index: 1;
+}
+
+/* Floating badges */
+.badge {
+  position: absolute;
+  background: rgba(13, 21, 32, 0.9);
+  border: 1px solid rgba(0, 212, 255, 0.15);
+  border-radius: 12px;
+  padding: 10px 16px;
+  backdrop-filter: blur(20px);
+  z-index: 10;
+}
+
+.badgeTop {
+  top: -16px;
+  right: -32px;
+  animation: badgeFloat 4s ease-in-out infinite;
+  animation-delay: -1s;
+}
+
+.badgeBottom {
+  bottom: 30px;
+  left: -44px;
+  animation: badgeFloat 4s ease-in-out infinite;
+  animation-delay: -2.5s;
+}
+
+@keyframes badgeFloat {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
+}
+
+.badgeLabel {
+  font-size: 11px;
+  color: #6b7a99;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 2px;
+}
+
+.badgeValue {
+  font-family: 'Syne', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #00d4ff;
+}
+
+.badgeValue.green {
+  color: #10b981;
+  font-size: 14px;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    padding: 100px 24px 60px;
+    gap: 60px;
+  }
+
+  .visual {
+    width: 100%;
+    order: -1;
+  }
+
+  .photoFrame {
+    width: 240px;
+    height: 290px;
+  }
+
+  .badgeTop {
+    right: -10px;
+  }
+
+  .badgeBottom {
+    left: -10px;
+  }
+}

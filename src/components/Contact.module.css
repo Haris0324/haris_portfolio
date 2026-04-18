@@ -1,0 +1,26 @@
+.section {
+  background: #060a0f;
+  position: relative;
+  z-index: 1;
+}
+
+.inner {
+  text-align: center;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.desc {
+  font-size: 17px;
+  color: #6b7a99;
+  line-height: 1.8;
+  margin-bottom: 44px;
+  font-weight: 300;
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
