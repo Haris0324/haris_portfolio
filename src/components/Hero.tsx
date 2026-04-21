@@ -81,7 +81,7 @@ export default function Hero() {
             <GithubIcon />
           </a>
           <a
-            href="https://linkedin.com/in/haris-laeeq"
+            href="https://www.linkedin.com/in/haris-laeeq-888238341/"
             target="_blank"
             rel="noopener noreferrer"
             className={styles.socialLink}
